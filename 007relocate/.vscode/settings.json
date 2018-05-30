@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "s3c2440.h": "c",
+        "key.h": "c",
+        "stdarg.h": "c",
+        "vcruntime.h": "c",
+        "vsprintf.h": "c",
+        "types.h": "c",
+        "string.h": "c",
+        "printf.h": "c",
+        "uart.h": "c",
+        "init.h": "c"
+    }
+}
