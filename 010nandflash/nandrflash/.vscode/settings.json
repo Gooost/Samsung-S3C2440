@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "s3c2440.h": "c",
+        "stdio.h": "c",
+        "led.h": "c",
+        "initializer_list": "c",
+        "xutility": "c",
+        "uart.h": "c",
+        "init.h": "c",
+        "xmemory0": "c"
+    }
+}
