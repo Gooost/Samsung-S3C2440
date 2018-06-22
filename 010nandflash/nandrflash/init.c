@@ -6,6 +6,7 @@
  */
 #include "S3C2440.h"
 #include "init.h"
+#include "nandflash.h"
 
 /**
   * @brief  sdram init. 
@@ -23,6 +24,28 @@ void sdram_init(void)
     MRSRB7   = 0x20;
 }
 /**
+  * @brief  judge boot from nand or not .
+  * @param  none
+  * @retval None.
+  */
+int isBootFromNorFlash(void)
+{
+	volatile unsigned int *p = (volatile unsigned int *)0;
+	unsigned int val = *p;
+
+	*p = 0x12345678;
+	if (*p == 0x12345678)
+	{
+		/* 写成功, 对应nand启动 */
+		*p = val;
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+/**
   * @brief  copy2sdram . copy all data to sdram.
   * @param  none
   * @retval None.
@@ -37,10 +60,22 @@ void copy2sdram(void)
     volatile unsigned int *end  = (volatile unsigned int *)&__bss_start;
     volatile unsigned int *src  = (volatile unsigned int *)0;
 
-    while(dest < end)
-    {
-        *dest++ = *src++;
-    }
+	int len;
+
+	len = ((int)&__bss_start) - ((int)&__code_start);
+
+	if (isBootFromNorFlash())
+	{
+		while (dest < end)
+		{
+			*dest++ = *src++;
+		}
+	}
+	else
+	{
+		nand_init();
+		nand_read(src, (unsigned char *)dest, len);
+	}
 }
 /**
   * @brief  clean_bss . 

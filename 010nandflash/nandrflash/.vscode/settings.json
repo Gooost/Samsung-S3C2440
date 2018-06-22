@@ -7,6 +7,7 @@
         "xutility": "c",
         "uart.h": "c",
         "init.h": "c",
-        "xmemory0": "c"
+        "xmemory0": "c",
+        "nandflash.h": "c"
     }
 }

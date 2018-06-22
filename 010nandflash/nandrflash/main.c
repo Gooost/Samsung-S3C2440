@@ -9,6 +9,7 @@
 #include "led.h"
 #include "key.h"
 #include "uart.h"
+#include "nandflash.h"
 
 char g_charA = 'A';
 
@@ -29,6 +30,7 @@ void delay(volatile int num)
 int main(void)
 {
     led_io_init();
+    nand_init();
     //key_io_init();
     //interrupt_init();
 	//key_eint_init();
@@ -44,7 +46,7 @@ int main(void)
             g_charA = 'A';
             puts("\r\n");     
         }
-        nor_flash_test();
+        nand_flash_test();
     }
     return 0;
 }

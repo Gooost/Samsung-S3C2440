@@ -1,10 +1,11 @@
 
-objs  = start.o lib1funcs.o init.o led.o key.o uart.o interrupt.o timer.o string_utils.o nor_flash.o main.o
+objs  = start.o init.o interrupt.o nandflash.o lib1funcs.o led.o key.o uart.o timer.o string_utils.o nor_flash.o main.o
 
 output_elf = main.elf
 output_bin = main.bin
 output_dis = main.dis 
-CFLAGS = -Werror -Iinclude -march=armv4
+CFLAGS = -Iinclude -march=armv4
+#CFLAGS = -Werror -Iinclude -march=armv4
 
 dep_files := $(patsubst  %, .%.d, $(objs))
 dep_files := $(wildcard $(dep_files)) #find the files on the desk
