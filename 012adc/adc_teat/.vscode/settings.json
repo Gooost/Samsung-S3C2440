@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "s3c2440.h": "c",
+        "stdio.h": "c",
+        "led.h": "c",
+        "initializer_list": "c",
+        "xutility": "c",
+        "uart.h": "c",
+        "init.h": "c",
+        "xmemory0": "c",
+        "nandflash.h": "c",
+        "lcd_controller.h": "c",
+        "s3c2440_lcd_controller.h": "c",
+        "lcd.h": "c",
+        "framebuffer.h": "c",
+        "geometry.h": "c",
+        "string.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}
